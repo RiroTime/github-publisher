@@ -1,0 +1,7 @@
+# 批处理必须保持 CRLF，原样入库存取，不做换行转换
+*.cmd -text
+
+*.py    text eol=lf
+*.md    text eol=lf
+*.json  text eol=lf
+*.patch text eol=lf

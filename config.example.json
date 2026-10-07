@@ -1,0 +1,21 @@
+{
+  "_help": "tools 留空 = 自动探测。targets 每项只要 name / staging_root / repo_slug / branches，可选的 key 指定用哪把部署钥匙。换电脑只改 staging_root。remote 地址由 repo_slug 推导，不用也不允许手填。",
+  "tools": {
+    "git": "",
+    "ssh": "",
+    "ssh-add": "",
+    "ssh-keygen": "",
+    "ssh-keyscan": ""
+  },
+  "targets": [
+    {
+      "name": "my-tool",
+      "staging_root": "<这台机器上存放 my-tool 源码的目录>",
+      "repo_slug": "<你的账号>/my-tool",
+      "branches": [
+        "main"
+      ],
+      "key": "github-deploy-my-tool"
+    }
+  ]
+}

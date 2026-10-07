@@ -1,0 +1,15 @@
+# 私钥。永远不进仓库，一次都不行。
+keys/
+
+# 运行痕迹，里面是本机绝对路径
+config.json
+manifests/
+audit.log
+receipts.log
+
+# 主机指纹（每台机器自己的）
+known_hosts
+
+__pycache__/
+*.pyc
+*.bak-*
