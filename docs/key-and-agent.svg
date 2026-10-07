@@ -1,0 +1,50 @@
+<svg viewBox="0 0 680 330" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>publisher 与 ssh-agent 的分工</title>
+  <desc>私钥加密封存在硬盘上，ssh-agent 持有一份解锁后的副本。publisher 只读公钥来决定这次用哪把钥匙，签名动作由 ssh-agent 完成。</desc>
+  <defs>
+    <marker id="a-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="a-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="679" height="329" rx="14" fill="#FAFAF9" stroke="#E5E7EB" stroke-width="1"/>
+
+  <g font-family="'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif">
+
+    <rect x="250" y="40" width="180" height="84" rx="12" fill="#CECBF6" stroke="#534AB7" stroke-width="0.5"/>
+    <text x="340" y="68" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">ssh-agent</text>
+    <text x="340" y="90" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">解锁后的私钥住这里</text>
+    <text x="340" y="108" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">签名只在这里发生</text>
+
+    <rect x="40" y="200" width="200" height="90" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+    <text x="140" y="226" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">硬盘上的钥匙文件</text>
+    <text x="140" y="250" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">私钥（加密存盘）</text>
+    <text x="140" y="270" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">公钥 .pub（点名用）</text>
+
+    <rect x="250" y="200" width="180" height="90" rx="12" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+    <text x="340" y="226" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#26215C">publisher 工具</text>
+    <text x="340" y="250" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">只读公钥，决定用哪把</text>
+    <text x="340" y="270" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#534AB7">从不碰私钥本体</text>
+
+    <rect x="490" y="200" width="150" height="90" rx="12" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+    <text x="565" y="226" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="500" fill="#2C2C2A">GitHub</text>
+    <text x="565" y="250" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">你贴上的公钥</text>
+    <text x="565" y="270" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">验签通过就放行</text>
+
+    <path d="M230 200 L300 124" fill="none" stroke="#534AB7" stroke-width="1.5" marker-end="url(#a-purple)"/>
+    <path d="M340 200 L340 124" fill="none" stroke="#534AB7" stroke-width="1.5" marker-end="url(#a-purple)"/>
+    <path d="M430 245 L490 245" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#a-gray)"/>
+
+    <text x="60" y="163" font-size="12" fill="#57534E">① 解锁一次</text>
+    <text x="60" y="181" font-size="12" fill="#78716C">（口令只输这一次）</text>
+
+    <text x="358" y="160" font-size="12" fill="#57534E">② 点名选钥匙</text>
+    <text x="358" y="178" font-size="12" fill="#78716C">借它的签名</text>
+
+    <text x="438" y="226" font-size="12" fill="#57534E">③ 推送</text>
+
+  </g>
+</svg>

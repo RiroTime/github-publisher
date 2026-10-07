@@ -9,6 +9,10 @@ staging_root ──manifest──▶ 清单 JSON ──push──▶ GitHub
                             （人点确认框）    （ssh-agent 签名）
 ```
 
+![钥匙、ssh-agent 与工具的分工](docs/key-and-agent.svg)
+
+工具全程只看得到公钥 —— 私钥始终加密封存在硬盘上，由系统 ssh-agent 保管解锁后的副本。详见下文「安全边界」。
+
 ---
 
 ## 它解决的具体麻烦
