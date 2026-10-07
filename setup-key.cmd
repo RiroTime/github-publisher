@@ -52,6 +52,8 @@ if exist "%KEY%" goto load
 
 echo [1/2] Generating an ed25519 deploy key.
 echo       You will be asked for a passphrase. SET ONE. Do not leave it empty.
+echo       You set it ONCE here, then reuse that SAME passphrase every time the
+echo       key is loaded into ssh-agent. It is not a new password per run.
 echo       That passphrase is the root of the whole boundary: without it,
 echo       anyone who can read the key file can push.
 echo.
@@ -62,7 +64,9 @@ if not errorlevel 1 goto nopass
 echo.
 
 :load
-echo [2/2] Loading the key into ssh-agent. Passphrase again.
+echo [2/2] Loading the key into ssh-agent.
+echo       Enter the SAME passphrase you set in step 1. This just unlocks the
+echo       key for the current login session - it is NOT a new password.
 echo.
 "%SSHDIR%\ssh-add.exe" "%KEY%"
 if errorlevel 1 goto fail
