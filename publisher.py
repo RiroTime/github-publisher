@@ -182,6 +182,13 @@ def target_by_name(name):
                 "staging_root": t["staging_root"],
                 "repo_slug": slug,
                 "branches": t.get("branches") or ["main"],
+                # key 必须原样带出来，key_for 靠它选钥匙。这里漏过一次：
+                # 显式配的钥匙被静默忽略，一路回落成 default。回落名恰好
+                # 等于显式名的（github-publisher）蒙对了，对不上的
+                # （dvlaa，回落名会带版本号）就被推成 default，遭 GitHub
+                # 拒绝为 "denied to deploy key"，而 doctor 读的是 config
+                # 原文、不走这里，所以看不出异常。
+                "key": t.get("key"),
                 "ssh_remote": "git@github.com:%s.git" % slug,
                 "anon_url": "https://github.com/%s.git" % slug,
             }
